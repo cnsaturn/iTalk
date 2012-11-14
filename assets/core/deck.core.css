@@ -196,7 +196,7 @@ body.deck-container {
   position: relative;
 }
 .slide h1 {
-  font-size: 4.5em;
+  font-size: 3.5em;
 }
 .slide h1, .slide .vcenter {
   font-weight: bold;
