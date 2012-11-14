@@ -14,32 +14,33 @@
 	<meta name="description" content="中小团队工作流程与开发模式探讨">
 	<meta name="author" content="Saturn">
 	<meta name="viewport" content="width=1024, user-scalable=no">
-
-	<link rel="stylesheet" href="<?php echo base_url('assets/font-awesome.css');?>">
+	
+	<?php if(ENVIRONMENT == 'development'):?>
+	<link rel="stylesheet" href="lib/font-awesome.css">
 
 	<!-- Core and extension CSS files -->
-	<link rel="stylesheet" href="core/deck.core.css">
-	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
-	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
-	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
-	<link rel="stylesheet" href="extensions/status/deck.status.css">
-	<link rel="stylesheet" href="extensions/status/deck.status.css">
-	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
-	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
-	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
-	<link rel="stylesheet" href="extensions/status/deck.status.css">
-	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
-	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+	<link rel="stylesheet" href="lib/core/deck.core.css">
+	<link rel="stylesheet" href="lib/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="lib/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="lib/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="lib/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="lib/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="lib/extensions/scale/deck.scale.css">
 	
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
-	<link rel="stylesheet" href="themes/style/swiss.css">
-
-	<link rel="stylesheet" href="italk.css">
+	<link rel="stylesheet" href="lib/themes/style/swiss.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
-	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+	<link rel="stylesheet" href="lib/themes/transition/horizontal-slide.css">
+
+	<!-- Rock our own style. -->
+	<link rel="stylesheet" href="lib/italk.css">
 	
-	<script src="modernizr.custom.js"></script>
+	<script src="lib/modernizr.custom.js"></script>
+	<?php else:?>
+	<?php echo css('italk.min.css');?>
+	<?php echo js('modernizr.custom.min.js');?>
+	<?php endif;?>
 </head>
 
 <body class="deck-container">
@@ -78,18 +79,21 @@
 <!-- deck.hash snippet -->
 <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
 
-<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="<?php echo base_url('assets/jquery-1.7.2.min.js');?>"><\/script>')</script>
-
+<?php if(ENVIRONMENT == 'development'):?>
+<script src="<?php echo base_url('assets/lib/jquery.js');?>"></script>
 <!-- Deck Core and extensions -->
-<script src="core/deck.core.js"></script>
-<script src="extensions/hash/deck.hash.js"></script>
-<script src="extensions/menu/deck.menu.js"></script>
-<script src="extensions/goto/deck.goto.js"></script>
-<script src="extensions/status/deck.status.js"></script>
-<script src="extensions/navigation/deck.navigation.js"></script>
-<script src="extensions/scale/deck.scale.js"></script>
+<script src="lib/core/deck.core.js"></script>
+<script src="lib/extensions/hash/deck.hash.js"></script>
+<script src="lib/extensions/menu/deck.menu.js"></script>
+<script src="lib/extensions/goto/deck.goto.js"></script>
+<script src="lib/extensions/status/deck.status.js"></script>
+<script src="lib/extensions/navigation/deck.navigation.js"></script>
+<script src="lib/extensions/scale/deck.scale.js"></script>
+<?php else:?>
+<!-- Deck Core and extensions -->
+<?php echo js('jquery.min.js');?>
+<?php echo js('italk.min.js');?>
+<?php endif;?>
 
 <!-- Initialize the deck -->
 <script>
