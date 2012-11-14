@@ -14,7 +14,8 @@
 	<meta name="description" content="中小团队工作流程与开发模式探讨">
 	<meta name="author" content="Saturn">
 	<meta name="viewport" content="width=1024, user-scalable=no">
-
+	
+	<?php if(ENVIRONMENT == 'development'):?>
 	<link rel="stylesheet" href="lib/font-awesome.css">
 
 	<!-- Core and extension CSS files -->
@@ -40,6 +41,10 @@
 	<link rel="stylesheet" href="lib/themes/transition/horizontal-slide.css">
 	
 	<script src="lib/modernizr.custom.js"></script>
+	<?php else:?>
+	<?php echo css('italk.min.css');?>
+	<?php echo js('modernizr.custom.min.js');?>
+	<?php endif;?>
 </head>
 
 <body class="deck-container">
@@ -78,10 +83,8 @@
 <!-- deck.hash snippet -->
 <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
 
-<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="<?php echo base_url('assets/lib/jquery-1.7.2.min.js');?>"><\/script>')</script>
-
+<?php if(ENVIRONMENT == 'development'):?>
+<script src="<?php echo base_url('assets/lib/jquery.js');?>"></script>
 <!-- Deck Core and extensions -->
 <script src="lib/core/deck.core.js"></script>
 <script src="lib/extensions/hash/deck.hash.js"></script>
@@ -90,6 +93,11 @@
 <script src="lib/extensions/status/deck.status.js"></script>
 <script src="lib/extensions/navigation/deck.navigation.js"></script>
 <script src="lib/extensions/scale/deck.scale.js"></script>
+<?php else:?>
+<!-- Deck Core and extensions -->
+<?php echo js('jquery.min.js');?>
+<?php echo js('italk.min.js');?>
+<?php endif;?>
 
 <!-- Initialize the deck -->
 <script>
