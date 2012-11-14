@@ -54,7 +54,7 @@ class Assets
 		}
 
 		// Populate the $server for fallback purpose
-		$this->server = CI()->config->item('base_url') . 'assets/';
+		$this->server = config_item('base_url') . 'assets/';
 
 		// Make sure this origin exists!
 		if(isset($this->_servers[ENVIRONMENT]))
@@ -146,7 +146,7 @@ class Assets
 		$str = $attr ? $this->_parse_attributes($attr) : '';
 		if( ! preg_match('/rel="([^\"]+)"/', $str)) $str .= ' rel="stylesheet"';
 
-		return '<link href="'. $url . '" type="text/css"' . $str . ' />' . "\n";
+		return '<link href="'. base_url($url) . '" type="text/css"' . $str . ' />' . "\n";
 	}
 
 	// --------------------------------------------------------------------
@@ -165,7 +165,7 @@ class Assets
 	{
 		// No alternative text given? Use the filename, better than nothing!
 		$str = $attr ? $this->_parse_attributes($attr) : '';
-		return '<img src="' . $url . '"'. $str . ' />' . "\n";
+		return '<img src="' . base_url($url) . '"'. $str . ' />' . "\n";
 	}
 
 	// --------------------------------------------------------------------
@@ -183,7 +183,7 @@ class Assets
 	private function _js($url, $attr = array())
 	{
 		$str = $attr ? $this->_parse_attributes($attr) : '';
-		return '<script type="text/javascript" src="'. $url . '"></script>' . "\n";
+		return '<script type="text/javascript" src="'. base_url($url) . '"></script>' . "\n";
 	}
 
 	// ------------------------------------------------------------------------
