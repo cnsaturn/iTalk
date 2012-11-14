@@ -4,6 +4,7 @@ VERSION = v100
 LIB_DIR = ./assets/lib
 DECK_EXT_DIR = ${LIB_DIR}/extensions
 JS_DIR = ./assets/scripts
+CSS_DIR = ./assets/styles
 TOOLS_DIR = ./build/tools
 FILE_TPL_DIR = ./build/templates
 DATE=$(shell date +%I:%M%p)
@@ -11,7 +12,7 @@ CHECK=✔
 HR=\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
 #
-# 压缩 JS 文件
+# 压缩合并 JS 文件
 #
 js:
 	@echo "\n${HR}"
@@ -31,4 +32,26 @@ js:
 	@echo "Resolving dependencies and minifying the core...       ${CHECK} Done"
 	@echo "\n${HR}"
 	@echo "\033[32mJavascript files successfully concatenated and minified at ${DATE}.\033[39m"
+	@echo "${HR}\n"
+
+#
+# 压缩合并 CSS （需要 Java 环境支持）
+#
+css:
+	@echo "\n${HR}"
+	@echo "\033[32mCompressing CSS files...\033[39m"
+	@echo "${HR}\n"
+	@rm -f ${CSS_DIR}/*.min.v*.css
+	@echo "Removing legacy CSS files...             ${CHECK} Done"
+	@cat ${LIB_DIR}/font-awesome.css ${LIB_DIR}/core/deck.core.css ${DECK_EXT_DIR}/goto/deck.goto.css \
+	${DECK_EXT_DIR}/menu/deck.menu.css ${DECK_EXT_DIR}/navigation/deck.navigation.css \
+	${DECK_EXT_DIR}/status/deck.status.css ${DECK_EXT_DIR}/goto/deck.goto.css \
+	${DECK_EXT_DIR}/hash/deck.hash.css ${DECK_EXT_DIR}/scale/deck.scale.css \
+	${LIB_DIR}/themes/style/swiss.css ${LIB_DIR}/themes/transition/horizontal-slide.css \
+	${LIB_DIR}/italk.css > ${CSS_DIR}/italk.tmp.css
+	@java -jar ${TOOLS_DIR}/yuicompressor-2.4.7.jar --charset utf-8 ${CSS_DIR}/italk.tmp.css -o ${CSS_DIR}/italk.min.${VERSION}.css
+	@rm ${CSS_DIR}/italk.tmp.css
+	@echo "Resolving dependencies and minifying the core css...       ${CHECK} Done"
+	@echo "\n${HR}"
+	@echo "\033[32mCSS files successfully concatenated and minified at ${DATE}.\033[39m"
 	@echo "${HR}\n"

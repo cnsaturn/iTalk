@@ -24,21 +24,17 @@
 	<link rel="stylesheet" href="lib/extensions/menu/deck.menu.css">
 	<link rel="stylesheet" href="lib/extensions/navigation/deck.navigation.css">
 	<link rel="stylesheet" href="lib/extensions/status/deck.status.css">
-	<link rel="stylesheet" href="lib/extensions/status/deck.status.css">
-	<link rel="stylesheet" href="lib/extensions/goto/deck.goto.css">
-	<link rel="stylesheet" href="lib/extensions/menu/deck.menu.css">
-	<link rel="stylesheet" href="lib/extensions/navigation/deck.navigation.css">
-	<link rel="stylesheet" href="lib/extensions/status/deck.status.css">
 	<link rel="stylesheet" href="lib/extensions/hash/deck.hash.css">
 	<link rel="stylesheet" href="lib/extensions/scale/deck.scale.css">
 	
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
 	<link rel="stylesheet" href="lib/themes/style/swiss.css">
-
-	<link rel="stylesheet" href="lib/italk.css">
 	
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<link rel="stylesheet" href="lib/themes/transition/horizontal-slide.css">
+
+	<!-- Rock our own style. -->
+	<link rel="stylesheet" href="lib/italk.css">
 	
 	<script src="lib/modernizr.custom.js"></script>
 	<?php else:?>
