@@ -1,6 +1,8 @@
 # Please install the following components before you RUN this makefile:
 # $sudo npm install -g less uglify-js jshint recess
 VERSION = v100
+ENVIRONMENT = production
+APP_DIR = ./application
 LIB_DIR = ./assets/lib
 DECK_EXT_DIR = ${LIB_DIR}/extensions
 JS_DIR = ./assets/scripts
@@ -55,3 +57,25 @@ css:
 	@echo "\n${HR}"
 	@echo "\033[32mCSS files successfully concatenated and minified at ${DATE}.\033[39m"
 	@echo "${HR}\n"
+
+#
+# 更新 assets.config 文件中的版本号
+#
+version:
+	@echo "\n${HR}"
+	@echo "\033[32mBumping version...\033[39m"
+	@echo "${HR}\n"
+	@sed -e s/'@VERSION@'/'${VERSION}'/g ${FILE_TPL_DIR}/assets.php > ${APP_DIR}/config/assets.php
+	@echo "Bumping assets to version ${VERSION}...       ${CHECK} Done"
+	@sed -e s/'@ENVIRONMENT@'/'${ENVIRONMENT}'/g ${FILE_TPL_DIR}/index.php > ./index.php
+	@echo "Set environment to *${ENVIRONMENT}* for the application...             ${CHECK} Done"
+	@echo "\n${HR}"
+	@echo "\033[32mSet current version to ${VERSION} at ${DATE}.\033[39m"
+	@echo "${HR}\n"
+
+deploy:
+	make version
+	make js
+	make css
+	# 自定义：调用执行其他脚本，如重置系统缓存、重启服务器、发送邮件通知管理员等
+	#make more
