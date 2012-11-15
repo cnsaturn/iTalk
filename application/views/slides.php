@@ -75,7 +75,7 @@
 	</ol>
 </section>
 
-<section class="slide" id="requirements">
+<section class="slide" id="considerations">
 	<h2>协作/开发工具选型标准 Considerations</h2>
 	<ol>
 		<li>
@@ -97,7 +97,7 @@
 	</ol>
 </section>
 
-<section class="slide" id="toolkit">
+<section class="slide" id="recommendation">
 	<h2>推荐方案 Recommendation</h2>
 	<p>适合 10~50 人之间的开发团队，每月固定财务花费约 200 USD（~ 1400 CNY）。</p>
 	<ol>
