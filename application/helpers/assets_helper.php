@@ -55,7 +55,7 @@ function js($name, $version = '', $attributes = array())
 function image($name, $attributes = array())
 {
 	$CI = & get_instance();
-	return $CI()->assets->parse('image', $name, $attributes);
+	return $CI->assets->parse('image', $name, $attributes);
 }
 
 // --------------------------------------------------------------------
