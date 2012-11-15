@@ -49,7 +49,7 @@ css:
 	${DECK_EXT_DIR}/menu/deck.menu.css ${DECK_EXT_DIR}/navigation/deck.navigation.css \
 	${DECK_EXT_DIR}/status/deck.status.css ${DECK_EXT_DIR}/goto/deck.goto.css \
 	${DECK_EXT_DIR}/hash/deck.hash.css ${DECK_EXT_DIR}/scale/deck.scale.css \
-	${LIB_DIR}/themes/style/swiss.css ${LIB_DIR}/themes/transition/horizontal-slide.css \
+	${LIB_DIR}/themes/style/web-2.0.css ${LIB_DIR}/themes/transition/horizontal-slide.css \
 	${LIB_DIR}/italk.css > ${CSS_DIR}/italk.tmp.css
 	@java -jar ${TOOLS_DIR}/yuicompressor-2.4.7.jar --charset utf-8 ${CSS_DIR}/italk.tmp.css -o ${CSS_DIR}/italk.min.${VERSION}.css
 	@rm ${CSS_DIR}/italk.tmp.css
