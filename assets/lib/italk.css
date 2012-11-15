@@ -1,0 +1,25 @@
+#title-slide h1, #the-end-slide h1 {
+  font-size: 2.5em;
+  top: 30%;
+}
+#title-slide h2,#the-end-slide h2 {
+  font-weight: bold;
+  border:none;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 45%;
+  font-size: 1.2em;
+  color: #494949;
+}
+#title-slide p, #the-end-slide p{
+  border:none;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 75%;
+  font-size: .6em;
+  color: #c00;
+}
