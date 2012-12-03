@@ -6,5 +6,6 @@ iTalk
 * 主题介绍：以 CI 作为 Web 开发框架为例，探讨关于小型互联网团队从远程协作(Git-Flow)、程序开发(CodeIgniter)到自动化部署(Git Hook/Hudson)的低成本解决方案。
 * 主题讲稿：http://saturn.yoozi.org/iTalk
 * 主题代码：https://github.com/cnsaturn/iTalk
+* 视频：http://my.ku6.com/watch?v=2wyoF6ogBcpIDVLVRveQAw..
 
 对于本话题与代码、架构相关的问题，大家可以直接在 Github 上提交 issue，我会及时尽力解答。对于本话题的任何衍生话题，请大家在[社区](http://codeigniter.org.cn/)开新贴进行讨论，我会持续关注。
